@@ -11,4 +11,10 @@ const pool = new Pool({
     port: process.env.DB_PORT || 5432
 });
 
+// Connect to the database and log the connection status
+pool.connect()
+    .then(() => console.log('Connected to the database!'))
+    .catch(err => console.error('Connection error', err.stack));
+
+// Export the pool instance
 module.exports = pool;

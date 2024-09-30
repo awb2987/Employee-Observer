@@ -1,5 +1,20 @@
 const inquirer = require('inquirer');
+const { Client } = require('pg');
 const queries = require('./db/queries');
+
+// PostgreSQL database connection setup
+const client = new Client({
+    user: 'yourUsername', // Replace with your PostgreSQL username
+    host: 'localhost',
+    database: 'yourDatabase', // Replace with your PostgreSQL database name
+    password: 'yourPassword', // Replace with your PostgreSQL password
+    port: 5432,
+});
+
+// Connect to the database
+client.connect()
+    .then(() => console.log('Connected to the database!'))
+    .catch(err => console.error('Connection error', err.stack));
 
 // Main Menu function
 const mainMenu = async () => {
@@ -78,6 +93,7 @@ const mainMenu = async () => {
 
             case 'Exit':
                 console.log('Exiting now...');
+                await client.end();
                 process.exit();         
         }
 
