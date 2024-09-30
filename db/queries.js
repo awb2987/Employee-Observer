@@ -6,8 +6,8 @@ const getDepartments = async () => {
         const result = await pool.query('SELECT * FROM department');
         return result.rows;
     } catch (error) {
-        console.error('Error retrieving departments:', error);
-        throw error;
+        console.error('Error retrieving departments:', error.message);
+        throw new Error('Could not retrieve departments. Please try again later.');
     }
 };
 
@@ -21,8 +21,8 @@ const getRoles = async () => {
         `);
         return result.rows;
     } catch (error) {
-        console.error('Error retrieving roles:', error);
-        throw error;
+        console.error('Error retrieving roles:', error.message);
+        throw new Error('Could not retrieve roles. Please try again later.');
     }
 };
 
@@ -30,7 +30,8 @@ const getRoles = async () => {
 const getEmployees = async () => {
     try {
         const result = await pool.query(`
-            SELECT employee.id, employee.first_name, employee.last_name, role.title AS role, department.name AS department, role.salary, manager.first_name AS manager
+            SELECT employee.id, employee.first_name, employee.last_name, role.title AS role,
+                department.name AS department, role.salary, manager.first_name AS manager
             FROM employee
             JOIN role ON employee.role_id = role.id
             JOIN department ON role.department_id = department.id
@@ -38,8 +39,8 @@ const getEmployees = async () => {
         `);
         return result.rows;
     } catch (error) {
-        console.error('Error retrieving employees:', error);
-        throw error;
+        console.error('Error retrieving employees:', error.message);
+        throw new Error('Could not retrieve employees. Please try again later.');
     }
 };
 
@@ -51,8 +52,8 @@ const addDepartment = async (name) => {
         }
         await pool.query('INSERT INTO department (name) VALUES ($1)', [name]);
     } catch (error) {
-        console.error('Error adding department:', error);
-        throw error;
+        console.error('Error adding department:', error.message);
+        throw new Error('Could not add department. Please try again later.');
     }
 };
 
@@ -64,8 +65,8 @@ const addRole = async (title, salary, departmentId) => {
         }
         await pool.query('INSERT INTO role (title, salary, department_id) VALUES ($1, $2, $3)', [title, salary, departmentId]);
     } catch (error) {
-        console.error('Error adding role:', error);
-        throw error;
+        console.error('Error adding role:', error.message);
+        throw new Error('Could not add role. Please try again later.');
     }
 };
 
@@ -77,8 +78,8 @@ const addEmployee = async (firstName, lastName, roleId, managerId) => {
         }
         await pool.query('INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES ($1, $2, $3, $4)', [firstName, lastName, roleId, managerId || null]);
     } catch (error) {
-        console.error('Error adding new employee:', error);
-        throw error;
+        console.error('Error adding new employee:', error.message);
+        throw new Error('Could not add employee. Please try again later.');
     }
 };
 
@@ -90,8 +91,8 @@ const updateEmployeeRole = async (employeeId, newRoleId) => {
         }
         await pool.query('UPDATE employee SET role_id = $1 WHERE id = $2', [newRoleId, employeeId]);
     } catch (error) {
-        console.error('Error updating employee role:', error);
-        throw error;
+        console.error('Error updating employee role:', error.message);
+        throw new Error('Could not update employee role. Please try again later.');
     }
 };
 
