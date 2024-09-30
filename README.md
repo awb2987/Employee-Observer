@@ -1,106 +1,72 @@
-# Employee Observer
-
-**Employee Observer** is a command-line application designed to manage and organize a company's employee database. It allows users to view, add, and update information about departments, roles, and employees using Node.js, Inquirer, and PostgreSQL.
+# Employee-Observer
 
 ## Table of Contents
-
-- [User Story](#user-story)
-- [Acceptance Criteria](#acceptance-criteria)
+- [Description](#description)
 - [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Database Schema](#database-schema)
-- [Seeding the Database](#seeding-the-database)
-- [Environment Variables](#environment-variables)
-- [Testing](#testing)
-- [Contributing](#contributing)
-- [License](#license)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [Walkthrough Video](#walkthrough-video)
+- [GitHub Repository](#github-repository)
+- [Contribution](#contribution)
+- [Acknowledgments](#acknowledgments)
 
-## User Story
-
-As a user, I want to manage and organize employee data, so that I can keep track of departments, roles, and employees effectively.
-
-## Acceptance Criteria
-
-- Users should be able to view all departments, roles, and employees.
-- Users should be able to add new departments, roles, and employees.
-- Users should be able to update an employee's role.
-- The application should provide confirmation messages for successful actions.
-- The application should handle errors gracefully and provide feedback to the user.
+## Description
+Employee-Observer is a command-line application designed to manage an employee database for a company. It allows users to view and manage departments, roles, and employees, providing an intuitive interface for business owners to organize and plan their workforce.
 
 ## Features
+- View all departments
+- View all roles
+- View all employees
+- Add a new department
+- Add a new role
+- Add a new employee
+- Update an employee's role
 
-- **View All Departments**: Display a table of all departments in the company.
-- **View All Roles**: Show a table of roles with details including the department they belong to and their salary.
-- **View All Employees**: List all employees with details including their role, department, and manager.
-- **Add a New Department**: Add a new department to the database.
-- **Add a New Role**: Create a new role with a title, salary, and associated department.
-- **Add a New Employee**: Add a new employee with details including first name, last name, role, and manager.
-- **Update an Employee Role**: Change an employee's role in the company.
+## Technologies Used
+- Node.js
+- Inquirer
+- PostgreSQL
 
-## Installation
+## Getting Started
 
-1. **Clone the Repository**
-
+### Installation
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/employee-observer.git
+   git clone https://github.com/yourusername/Employee-Observer.git
    ```
-
-2. **Navigate to the Project Directory**
-
+2. Navigate to the project directory:
    ```bash
-   cd employee-observer
+   cd Employee-Observer
    ```
-
-3. **Install Dependencies**
-
+3. Install the required packages:
    ```bash
    npm install
    ```
+4. Create a `.env` file in the root directory and add your database credentials:
+   ```plaintext
+   DB_USER=yourusername
+   DB_HOST=localhost
+   DB_NAME=yourdatabase
+   DB_PASSWORD=yourpassword
+   DB_PORT=5432
+   ```
 
-## Usage
-
+### Running the Application
+To start the application, use the following command:
 ```bash
-node index.js
+npm start
 ```
 
-## Database Schema
+## Walkthrough Video
+[Walkthrough Video](https://www.youtube.com/watch?v=example)
 
-- **Departments Table**: Contains department id and name.
-- **Roles Table**: Contains role id, title, salary, and department id.
-- **Employees Table**: Contains employee id, first name, last name, role id, manager id.
+## GitHub Repository
+[GitHub Repository](https://github.com/awb2987/Employee-Observer)
 
-## Seeding the Database
+## Contribution
+If you would like to contribute to this project, please feel free to fork the repository and submit a pull request.
 
-To seed the database with initial data, run:
-
-```bash
-npm run seed
-```
-
-## Environment Variables
-
-Ensure you have a `.env` file with the following variables:
-
-```
-DB_HOST=localhost
-DB_USER=yourusername
-DB_PASSWORD=yourpassword
-DB_NAME=employeedb
-```
-
-## Testing
-
-To run tests, use the following command:
-
-```bash
-npm test
-```
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
+## Acknowledgments
+Special thanks to the instructors and resources that guided the development of this project.
