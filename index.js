@@ -1,20 +1,24 @@
+require('dotenv').config(); // Load environment variables from .env file
 const inquirer = require('inquirer');
 const { Client } = require('pg');
 const queries = require('./db/queries');
 
-// PostgreSQL database connection setup
+// PostgreSQL database connection setup using environment variables
 const client = new Client({
-    user: 'yourUsername', // Replace with your PostgreSQL username
-    host: 'localhost',
-    database: 'yourDatabase', // Replace with your PostgreSQL database name
-    password: 'yourPassword', // Replace with your PostgreSQL password
-    port: 5432,
+    user: process.env.DB_USER,        // Your PostgreSQL username from the .env file
+    host: process.env.DB_HOST,        // Database host, typically 'localhost'
+    database: process.env.DB_NAME,    // Your PostgreSQL database name from the .env file
+    password: process.env.DB_PASSWORD,// Your PostgreSQL password from the .env file
+    port: process.env.DB_PORT || 5432 // Default port is 5432, or from the .env file
 });
 
 // Connect to the database
 client.connect()
     .then(() => console.log('Connected to the database!'))
-    .catch(err => console.error('Connection error', err.stack));
+    .catch(err => {
+        console.error('Connection error', err.stack);
+        process.exit(1); // Exit if there's a connection error
+    });
 
 // Main Menu function
 const mainMenu = async () => {

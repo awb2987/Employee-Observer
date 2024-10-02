@@ -1,4 +1,5 @@
-const pool = require('./db/connection');
+const path = require('path');
+const pool = require(path.resolve(__dirname, 'connection'));
 
 // Get all departments
 const getDepartments = async () => {
