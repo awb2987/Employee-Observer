@@ -76,6 +76,7 @@ node index.js
 
 ## Walkthrough Video
 [Walkthrough Video](https://drive.google.com/file/d/1sv84afBHYVp2gvwgRxeouajQHcJGcsKm/view)
+[Walthrough Video Back-up](https://drive.google.com/file/d/1sv84afBHYVp2gvwgRxeouajQHcJGcsKm/view?usp=sharing)
 
 ## GitHub Repository
 [GitHub Repository](https://github.com/awb2987/Employee-Observer)
