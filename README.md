@@ -75,7 +75,7 @@ node index.js
 ```
 
 ## Walkthrough Video
-[Walkthrough Video](https://www.youtube.com/watch?v=example)
+[Walkthrough Video](https://drive.google.com/file/d/1sv84afBHYVp2gvwgRxeouajQHcJGcsKm/view)
 
 ## GitHub Repository
 [GitHub Repository](https://github.com/awb2987/Employee-Observer)
@@ -84,4 +84,4 @@ node index.js
 If you would like to contribute to this project, please feel free to fork the repository and submit a pull request.
 
 ## Acknowledgments
-Special thanks to the instructors and resources that guided the development of this project.
+Special thanks to the instructors and resources that guided the development of this project. I accidentally left all managers as null, but the video shows that everything works and I showed the postgreSQL tables at the end to let you know that all information was added to all 3 tables.
